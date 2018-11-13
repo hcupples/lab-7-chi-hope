@@ -1,0 +1,23 @@
+---
+title: "Gun Control CHi Square"
+author: "HC"
+date: "November 13, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This: I am Hope and I am updating this markdown file here.
+```{r}
+library(tidyverse)
+
+gc_df <- read_csv('gc_df.csv')
+
+```
+
+We are asking: Is there a significant difference in recommended gun control action for male and female respondents (should guns be easier, harder, or the same difficulty to get)?
+
+
+
