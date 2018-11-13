@@ -23,12 +23,36 @@ We are asking: Is there a significant difference in recommended gun control acti
 get_guns <- gc_df %>%  
   filter(gender != "NA", make_get_guns != "NA") %>%  
   count(gender, make_get_guns) %>% 
-  spread(make_get_guns, n)
+  spread(make_get_guns, n) %>% 
+  select(-gender)
 
 get_guns
 
 rownames(get_guns) <- c("Female", "Male")
 
 ```
+
+
+Hi my name is Joslyn, the collaborator, and I'm going to be doing the chi-square test for independence! 
+
+We ask "Is there a sig association btwn sex and opinion on whether guns should be more difficult, easier, or the same to purchase?"
+
+
+```{r}
+
+# Let's look at the actaul proportions
+
+guns_prop <- prop.table(as.matrix(get_guns), 1) # gives it the margin in which I want to calculate proportions
+guns_prop
+
+# Chi-squared test below! 
+
+guns_x2 <- chisq.test(get_guns)
+guns_x2
+
+```
+
+"Recommended gov action on gun acccess differed sig btwn male (n= ) and female (n = ) respondents (in-line reference inserted here). Notably, a much higher proportion of female repsondents (57.4%) recommend making it more difficult to get guns, compare to males...."
+
 
 
